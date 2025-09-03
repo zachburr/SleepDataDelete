@@ -4,7 +4,7 @@ using System.Data;
 Console.WriteLine("Hello, World!");
 //ask for input
 Console.WriteLine("Enter 1 to create data file");
-Console.WriteLine("Enter 2 ro parse data file");
+Console.WriteLine("Enter 2 to parse data file");
 Console.WriteLine("Enter anything else to quit");
 
 string? resp = Console.ReadLine();
@@ -45,5 +45,16 @@ if (resp == "1")
 }
 else if (resp == "2")
 {
-
+    string? file = "data.txt";
+    if (File.Exists(file))
+    {
+        StreamReader sr = new(file);
+        while (!sr.EndOfStream)
+        {
+            string? line = sr.ReadLine();
+            string[] arr = String.IsNullOrEmpty(line) ? [] : line.Split(',');
+        }
+    }
+    // DateTime today = DateTime.Now;
+    // Console.WriteLine($"Week of {today:MMM}, {today:dd}, {today:yyyy}");
 }
