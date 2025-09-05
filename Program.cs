@@ -58,7 +58,7 @@ else if (resp == "2")
                 DateTime date = DateTime.Parse(arr[0]); //assigns the date to the array
                 Console.WriteLine($"Week of {date:MMM dd, yyyy}");//reformats the date
 
-                string[] arr2 = line.Split('|');
+                
                 
 
 
