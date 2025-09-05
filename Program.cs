@@ -52,9 +52,20 @@ else if (resp == "2")
         while (!sr.EndOfStream)
         {
             string? line = sr.ReadLine();
-            string[] arr = String.IsNullOrEmpty(line) ? [] : line.Split(',');
+            if (!string.IsNullOrEmpty(line))//checks to make sure the file isant empty
+            {
+                string[] arr = line.Split(',');//creates an array splitting everything from the , back
+                DateTime date = DateTime.Parse(arr[0]); //assigns the date to the array
+                Console.WriteLine($"Week of {date:MMM dd, yyyy}");//reformats the date
+
+                string[] arr2 = line.Split('|');
+                
+
+
+            }
+            
+
         }
+        sr.Close();
     }
-    // DateTime today = DateTime.Now;
-    // Console.WriteLine($"Week of {today:MMM}, {today:dd}, {today:yyyy}");
 }
