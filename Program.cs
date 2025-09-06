@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Data;
+using System.Runtime.InteropServices;
 
 Console.WriteLine("Hello, World!");
 //ask for input
@@ -56,14 +57,37 @@ else if (resp == "2")
             {
                 string[] arr = line.Split(',');//creates an array splitting everything from the , back
                 DateTime date = DateTime.Parse(arr[0]); //assigns the date to the array
-                Console.WriteLine($"Week of {date:MMM dd, yyyy}");//reformats the date
+                Console.WriteLine("{0,3}", $"Week of {date:MMM, dd, yyyy}");//reformats the date
 
+
+                string[] sleepTimes = arr[1].Split('|');//splits the second array
+                string[] days = { "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" };//creates and array of abbreviated days
+
+                for (int i = 0; i < days.Length; i++)//loop through days array
+                {
+                    Console.Write("{0,3}", days[i]);//formats the days
+                }
+                Console.WriteLine();//new line
+
+                for (int i = 0; i < days.Length; i++)//loop through days array just adds -- this time
+                {
+                    Console.Write("{0,3}", "--");//formats --
+                }
+                Console.WriteLine();//new line
+
+                for (int i = 0; i < sleepTimes.Length; i++) //loops through sleepTimes array
+                {
+                    Console.Write("{0,3}", sleepTimes[i]);//formats sleep times
+                }
+                Console.WriteLine();//new line
+                Console.WriteLine();
                 
-                
+
+
 
 
             }
-            
+
 
         }
         sr.Close();
